@@ -1,0 +1,36 @@
+#:import random random
+
+<GameTile@Label>:
+    font_size: 32
+    size_hint: None, None
+    size: 100, 100
+    color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: 0.5, 0.5, 0.5, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<GridLayout>:
+    rows: 4
+    cols: 4
+    spacing: 10
+    padding: 10
+
+BoxLayout:
+    orientation: 'vertical'
+    Label:
+        id: score_label
+        text: "Score: 0"
+        font_size: 24
+        size_hint_y: None
+        height: 50
+    GridLayout:
+        id: grid
+    BoxLayout:
+        size_hint_y: None
+        height: 50
+        Button:
+            text: "Restart"
+            on_press: app.restart_game()
